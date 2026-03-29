@@ -1116,6 +1116,24 @@ ul { list-style: none; }
 }
 .footer-col ul li a:hover { color: var(--or); }
 
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: var(--or);
+  color: var(--blanc);
+  transition: opacity var(--transition);
+}
+.footer-social a:hover {
+  opacity: 0.8;
+}
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -3242,7 +3260,7 @@ ul { list-style: none; }
             data-de="Nachricht senden"
             data-en="Send a message">Envoyer un message</h3>
 
-        <form id="contactForm" novalidate>
+        <form id="contactForm" action="https://formspree.io/f/xwvwlzva" method="POST" novalidate>
           <div class="form-row">
             <div class="form-champ">
               <label for="prenom"
@@ -3332,11 +3350,9 @@ ul { list-style: none; }
      FOOTER
      ============================================================ -->
 </main>
-
 <footer id="footer" role="contentinfo">
   <div class="container">
     <div class="footer-top">
-
       <!-- Brand -->
       <div class="footer-brand">
         <p class="footer-brand__nom">Jean Thannberger</p>
@@ -3351,8 +3367,25 @@ ul { list-style: none; }
            data-en="Delegate, entrepreneur and author committed to the French established outside France.">
           Délégué, entrepreneur et auteur engagé pour les Français établis hors de France.
         </p>
+        <!-- Réseaux sociaux -->
+        <div class="footer-social">
+          <a href="https://de.linkedin.com/in/jean-thannberger-a94b7535" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM.02 8h4.96v16H.02V8zm7.94 0h4.76v2.19h.07c.66-1.26 2.28-2.58 4.69-2.58 5.01 0 5.94 3.3 5.94 7.59V24h-4.96v-7.93c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.06-3.03 4.18V24H7.96V8z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/JeanThannberger" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L2.25 2.25h6.865l4.265 5.638 5.864-5.638zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/jean.thannberger/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.851s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.609.074-3.031.435-4.161 1.564C1.763 2.765 1.402 4.187 1.328 5.796 1.27 7.076 1.256 7.484 1.256 12s.014 4.924.072 6.204c.074 1.609.435 3.031 1.564 4.161 1.13 1.129 2.552 1.49 4.161 1.564 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.609-.074 3.031-.435 4.161-1.564 1.129-1.13 1.49-2.552 1.564-4.161.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.074-1.609-.435-3.031-1.564-4.161-1.13-1.129-2.552-1.49-4.161-1.564C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+            </svg>
+          </a>
+        </div>
       </div>
-
       <!-- Navigation -->
       <div class="footer-col">
         <h4 data-fr="Navigation" data-de="Navigation" data-en="Navigation">Navigation</h4>
@@ -3364,7 +3397,6 @@ ul { list-style: none; }
           <li><a href="#contact"      data-fr="Contact"       data-de="Kontakt"       data-en="Contact">Contact</a></li>
         </ul>
       </div>
-
       <!-- Engagements -->
       <div class="footer-col">
         <h4 data-fr="Missions" data-de="Aufgaben" data-en="Missions">Missions</h4>
@@ -3379,9 +3411,7 @@ ul { list-style: none; }
                  data-en="White Paper 2026/2027">Livre blanc 2026/2027</a></li>
         </ul>
       </div>
-
     </div>
-
     <div class="footer-bottom">
       <p>
         <span data-fr="© 2026 Jean Thannberger. Tous droits réservés."
@@ -3396,10 +3426,8 @@ ul { list-style: none; }
               data-en="Legal notice">Mentions légales</button>
       <div class="footer-or-line" aria-hidden="true"></div>
     </div>
-
   </div>
 </footer>
-
 <!-- Script principal -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /**
