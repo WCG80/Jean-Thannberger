@@ -3582,28 +3582,45 @@ document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el))
    ============================================================ */
 const form = document.getElementById('contactForm');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     const btn = form.querySelector('[type="submit"]');
     const originalText = btn.innerHTML;
-
     const messages = {
       fr: 'Message envoyé — Merci !',
       de: 'Nachricht gesendet — Danke !',
       en: 'Message sent — Thank you !',
     };
 
-    btn.innerHTML = messages[currentLang];
     btn.disabled = true;
     btn.style.opacity = '.7';
 
-    setTimeout(() => {
-      btn.innerHTML = originalText;
+    const data = new FormData(form);
+    try {
+      const response = await fetch('https://formspree.io/f/xwvwlzva', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        btn.innerHTML = messages[currentLang];
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          btn.style.opacity = '';
+          form.reset();
+        }, 3500);
+      } else {
+        btn.innerHTML = 'Erreur — Réessayez';
+        btn.disabled = false;
+        btn.style.opacity = '';
+      }
+    } catch {
+      btn.innerHTML = 'Erreur — Réessayez';
       btn.disabled = false;
       btn.style.opacity = '';
-      form.reset();
-    }, 3500);
+    }
   });
 }
 
