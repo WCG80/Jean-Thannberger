@@ -2409,81 +2409,143 @@ ul { list-style: none; }
 <!-- ============================================================
      ÉCRITS & TRIBUNES
      ============================================================ -->
-<div style="margin-top:1rem;border:1px solid rgba(125,196,232,.3);">
+<style>
+.presse-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 100px;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.75rem;
+  border-bottom: 1px solid rgba(125,196,232,.2);
+  text-decoration: none;
+  transition: background .3s;
+  color: inherit;
+}
+.presse-row:last-child { border-bottom: none; }
+.presse-row:hover { background: var(--beige); }
+.presse-row__source {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--or);
+}
+.presse-row__titre {
+  font-family: var(--font-titre);
+  font-size: 1rem;
+  color: var(--anthracite);
+}
+.presse-row__date {
+  font-size: .75rem;
+  color: var(--gris-moyen);
+  text-align: right;
+  font-style: italic;
+}
+@media (max-width: 768px) {
+  .presse-row { grid-template-columns: 1fr; gap: .25rem; }
+  .presse-row__date { text-align: left; }
+}
+</style>
 
-  <a href="https://archive.org/details/le-nouvel-economiste-du-12-au-18-avril-2007_202603" target="_blank" rel="noopener noreferrer" class="presse-row">
-    <span class="presse-row__source">Le Nouvel Économiste</span>
-    <span class="presse-row__titre">« PME, vos besoins de financement l'intéressent »</span>
-    <span class="presse-row__date">Avril 2007</span>
-  </a>
+<section id="presse" class="section-pad" aria-label="Presse">
+  <div class="container">
 
-  <a href="https://archive.org/details/pse-challenges.com-du-20081211" target="_blank" rel="noopener noreferrer" class="presse-row">
-    <span class="presse-row__source">Challenges</span>
-    <span class="presse-row__titre">« Thannberger & Cie : lance "Paris Stock Exchange" »</span>
-    <span class="presse-row__date">11 déc. 2008</span>
-  </a>
+    <div class="parcours-header reveal">
+      <span class="deco-line" aria-hidden="true"></span>
+      <p class="sous-titre"
+         data-fr="Tribunes &amp; Références"
+         data-de="Kommentare &amp; Referenzen"
+         data-en="Op-Eds &amp; References">Tribunes &amp; Références</p>
+      <h2 class="titre-section"
+          data-fr="Presse"
+          data-de="Presse"
+          data-en="Press">Presse</h2>
+      <p class="corps u-mt1" style="max-width:900px;font-size:.9rem;"
+         data-fr="Cette section rassemble les publications, tribunes et références presse de Jean Thannberger — un engagement documenté au service des PME-PMI françaises, des relations entre pays, de la francophonie au sens large et d'une politique de proximité au bénéfice, entre autres, des Français de l'étranger."
+         data-de="Dieser Abschnitt versammelt die Publikationen, Kommentare und Presseverweise von Jean Thannberger — ein dokumentiertes Engagement für französische KMU, die Beziehungen zwischen Ländern, die Frankophonie in ihrem weitesten Sinne und eine Bürgernähe zum Wohl, unter anderem, der im Ausland lebenden Franzosen."
+         data-en="This section brings together the publications, op-eds and press references of Jean Thannberger — a documented commitment in service of French SMEs, relations between countries, the Francophonie in its broadest sense, and a politics of proximity for the benefit, among others, of French citizens living abroad.">
+        Cette section rassemble les publications, tribunes et références presse de Jean Thannberger — un engagement documenté au service des PME-PMI françaises, des relations entre pays, de la francophonie au sens large et d'une politique de proximité au bénéfice, entre autres, des Français de l'étranger.
+      </p>
+    </div>
 
-  <a href="https://archive.org/details/pse-challenges.com-du-20081211_20260326" target="_blank" rel="noopener noreferrer" class="presse-row">
-    <span class="presse-row__source">Les Échos</span>
-    <span class="presse-row__titre">« Une plate-forme obligataire pour les PME »</span>
-    <span class="presse-row__date">12 déc. 2008</span>
-  </a>
+    <div style="margin-top:1rem;border:1px solid rgba(125,196,232,.3);">
 
-  <a href="https://www.lesechos.fr/2009/02/le-holding-thannberger-cie-candidat-a-la-reprise-defi-447893" target="_blank" rel="noopener noreferrer" class="presse-row">
-    <span class="presse-row__source">Les Échos</span>
-    <span class="presse-row__titre">« Le holding Thannberger & Cie candidat à la reprise d'EFI »</span>
-    <span class="presse-row__date">Fév. 2009</span>
-  </a>
+      <a href="https://archive.org/details/le-nouvel-economiste-du-12-au-18-avril-2007_202603" target="_blank" rel="noopener noreferrer" class="presse-row">
+        <span class="presse-row__source">Le Nouvel Économiste</span>
+        <span class="presse-row__titre">« PME, vos besoins de financement l'intéressent »</span>
+        <span class="presse-row__date">Avril 2007</span>
+      </a>
 
-  <a href="https://archive.org/details/lne-1459-cahier-2" target="_blank" rel="noopener noreferrer" class="presse-row">
-    <span class="presse-row__source">Le Nouvel Économiste — n° 1459</span>
-    <span class="presse-row__titre">« La bourse des gazelles »</span>
-    <span class="presse-row__date">15 jan. 2009</span>
-  </a>
+      <a href="https://archive.org/details/pse-challenges.com-du-20081211" target="_blank" rel="noopener noreferrer" class="presse-row">
+        <span class="presse-row__source">Challenges</span>
+        <span class="presse-row__titre">« Thannberger &amp; Cie : lance "Paris Stock Exchange" »</span>
+        <span class="presse-row__date">11 déc. 2008</span>
+      </a>
 
-  <a href="https://www.cfnews.net/L-actualite/Bourse/Vie-des-acteurs/Thannberger-Cie-Devenir-une-petite-banque-d-affaires-29547" target="_blank" rel="noopener noreferrer" class="presse-row">
-    <span class="presse-row__source">CF News</span>
-    <span class="presse-row__titre">« Thannberger & Cie : devenir une petite banque d'affaires »</span>
-    <span class="presse-row__date">2009</span>
-  </a>
+      <a href="https://archive.org/details/pse-challenges.com-du-20081211_20260326" target="_blank" rel="noopener noreferrer" class="presse-row">
+        <span class="presse-row__source">Les Échos</span>
+        <span class="presse-row__titre">« Une plate-forme obligataire pour les PME »</span>
+        <span class="presse-row__date">12 déc. 2008</span>
+      </a>
 
-  <a href="https://archive.org/details/dernieres-nouvelles-dalsace-jeudi-01-octobre-2009" target="_blank" rel="noopener noreferrer" class="presse-row">
-    <span class="presse-row__source">Dernières Nouvelles d'Alsace</span>
-    <span class="presse-row__titre">« Thannberger & Cie au capital de Manurhin »</span>
-    <span class="presse-row__date">1er oct. 2009</span>
-  </a>
+      <a href="https://www.lesechos.fr/2009/02/le-holding-thannberger-cie-candidat-a-la-reprise-defi-447893" target="_blank" rel="noopener noreferrer" class="presse-row">
+        <span class="presse-row__source">Les Échos</span>
+        <span class="presse-row__titre">« Le holding Thannberger &amp; Cie candidat à la reprise d'EFI »</span>
+        <span class="presse-row__date">Fév. 2009</span>
+      </a>
 
-  <a href="https://archive.org/details/dernieres-nouvelles-dalsace-vendredi-16-avril-2010" target="_blank" rel="noopener noreferrer" class="presse-row">
-    <span class="presse-row__source">Dernières Nouvelles d'Alsace</span>
-    <span class="presse-row__titre">« Retour à la sérénité — Manurhin Equipement »</span>
-    <span class="presse-row__date">16 avr. 2010</span>
-  </a>
+      <a href="https://archive.org/details/lne-1459-cahier-2" target="_blank" rel="noopener noreferrer" class="presse-row">
+        <span class="presse-row__source">Le Nouvel Économiste — n° 1459</span>
+        <span class="presse-row__titre">« La bourse des gazelles »</span>
+        <span class="presse-row__date">15 jan. 2009</span>
+      </a>
 
-  <a href="https://archive.org/details/dna-du-110923" target="_blank" rel="noopener noreferrer" class="presse-row">
-    <span class="presse-row__source">Dernières Nouvelles d'Alsace</span>
-    <span class="presse-row__titre">« Situation d'urgence — Défense / Manurhin »</span>
-    <span class="presse-row__date">23 sept. 2011</span>
-  </a>
+      <a href="https://www.cfnews.net/L-actualite/Bourse/Vie-des-acteurs/Thannberger-Cie-Devenir-une-petite-banque-d-affaires-29547" target="_blank" rel="noopener noreferrer" class="presse-row">
+        <span class="presse-row__source">CF News</span>
+        <span class="presse-row__titre">« Thannberger &amp; Cie : devenir une petite banque d'affaires »</span>
+        <span class="presse-row__date">2009</span>
+      </a>
 
-  <a href="https://archive.org/details/dna-du-111026" target="_blank" rel="noopener noreferrer" class="presse-row">
-    <span class="presse-row__source">Dernières Nouvelles d'Alsace</span>
-    <span class="presse-row__titre">« Manurhin : l'heure de vérité »</span>
-    <span class="presse-row__date">26 oct. 2011</span>
-  </a>
+      <a href="https://archive.org/details/dernieres-nouvelles-dalsace-jeudi-01-octobre-2009" target="_blank" rel="noopener noreferrer" class="presse-row">
+        <span class="presse-row__source">Dernières Nouvelles d'Alsace</span>
+        <span class="presse-row__titre">« Thannberger &amp; Cie au capital de Manurhin »</span>
+        <span class="presse-row__date">1er oct. 2009</span>
+      </a>
 
-  <a href="https://archive.org/details/dna-du-111216" target="_blank" rel="noopener noreferrer" class="presse-row">
-    <span class="presse-row__source">Dernières Nouvelles d'Alsace</span>
-    <span class="presse-row__titre">« L'État d'accord pour monter au capital de Manurhin — 130 emplois sauvés »</span>
-    <span class="presse-row__date">16 déc. 2011</span>
-  </a>
+      <a href="https://archive.org/details/dernieres-nouvelles-dalsace-vendredi-16-avril-2010" target="_blank" rel="noopener noreferrer" class="presse-row">
+        <span class="presse-row__source">Dernières Nouvelles d'Alsace</span>
+        <span class="presse-row__titre">« Retour à la sérénité — Manurhin Equipement »</span>
+        <span class="presse-row__date">16 avr. 2010</span>
+      </a>
 
-  <a href="https://lejournalduparlement.fr/actualite/la-france-en-mauvais-etat" target="_blank" rel="noopener noreferrer" class="presse-row">
-    <span class="presse-row__source">Journal du Parlement</span>
-    <span class="presse-row__titre">« La France en mauvais état »</span>
-    <span class="presse-row__date">21 fév. 2025</span>
-  </a>
+      <a href="https://archive.org/details/dna-du-110923" target="_blank" rel="noopener noreferrer" class="presse-row">
+        <span class="presse-row__source">Dernières Nouvelles d'Alsace</span>
+        <span class="presse-row__titre">« Situation d'urgence — Défense / Manurhin »</span>
+        <span class="presse-row__date">23 sept. 2011</span>
+      </a>
 
-</div>
+      <a href="https://archive.org/details/dna-du-111026" target="_blank" rel="noopener noreferrer" class="presse-row">
+        <span class="presse-row__source">Dernières Nouvelles d'Alsace</span>
+        <span class="presse-row__titre">« Manurhin : l'heure de vérité »</span>
+        <span class="presse-row__date">26 oct. 2011</span>
+      </a>
+
+      <a href="https://archive.org/details/dna-du-111216" target="_blank" rel="noopener noreferrer" class="presse-row">
+        <span class="presse-row__source">Dernières Nouvelles d'Alsace</span>
+        <span class="presse-row__titre">« L'État d'accord pour monter au capital de Manurhin — 130 emplois sauvés »</span>
+        <span class="presse-row__date">16 déc. 2011</span>
+      </a>
+
+      <a href="https://lejournalduparlement.fr/actualite/la-france-en-mauvais-etat" target="_blank" rel="noopener noreferrer" class="presse-row">
+        <span class="presse-row__source">Journal du Parlement</span>
+        <span class="presse-row__titre">« La France en mauvais état »</span>
+        <span class="presse-row__date">21 fév. 2025</span>
+      </a>
+
+    </div>
+
+  </div>
+</section>
 
 
 <!-- ============================================================
