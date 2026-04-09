@@ -3614,11 +3614,14 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     const target = document.querySelector(link.getAttribute('href'));
     if (!target) return;
     e.preventDefault();
+    // Active immédiatement le lien cliqué
+    document.querySelectorAll('.nav-menu a[href^="#"]').forEach(l => l.classList.remove('active'));
+    const navLink = document.querySelector(`.nav-menu a[href="${link.getAttribute('href')}"]`);
+    if (navLink) navLink.classList.add('active');
     const offsetTop = target.offsetTop - (nav ? nav.offsetHeight : 72);
     window.scrollTo({ top: offsetTop, behavior: 'smooth' });
   });
 });
-
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll(); // état initial
 
