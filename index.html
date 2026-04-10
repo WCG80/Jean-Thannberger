@@ -3619,9 +3619,12 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     if (navLink) navLink.classList.add('active');
     const offsetTop = target.offsetTop - (nav ? nav.offsetHeight : 72);
     window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    scrollLocked = true;
+    setTimeout(() => { scrollLocked = false; }, 1000);
   });
 });
-window.addEventListener('scroll', onScroll, { passive: true });
+let scrollLocked = false;
+window.addEventListener('scroll', () => { if (!scrollLocked) onScroll(); }, { passive: true });
 onScroll(); // état initial
 
 /* ============================================================
