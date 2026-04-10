@@ -3609,7 +3609,7 @@ const navObserver = new IntersectionObserver((entries) => {
       });
     }
   });
-}, { threshold: 0.3, rootMargin: '-72px 0px 0px 0px' });
+}, { threshold: 0.1, rootMargin: '-72px 0px 0px 0px' });
 
 navSections.forEach((section) => navObserver.observe(section));
 
