@@ -3563,35 +3563,14 @@ const toggle  = document.getElementById('navToggle');
 const drawer  = document.getElementById('navDrawer');
 const overlay = document.getElementById('navOverlay');
 
-/** Navigation sticky — ajout de la classe .scrolled au scroll */
 function onScroll() {
   if (window.scrollY > 80) {
     nav.classList.add('scrolled');
   } else {
     nav.classList.remove('scrolled');
   }
-  updateActiveNav();
 }
 
-/** Met à jour le lien actif dans la nav selon la section visible */
-function updateActiveNav() {
-  const sections = document.querySelectorAll('section[id], div[id]');
-  const navLinks  = document.querySelectorAll('.nav-menu a[href^="#"]');
-
-  let current = '';
-  sections.forEach((section) => {
-    const top = section.offsetTop - 100;
-    if (window.scrollY >= top) {
-      current = '#' + section.id;
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.toggle('active', link.getAttribute('href') === current);
-  });
-}
-
-/** Ouverture / fermeture du drawer mobile */
 function toggleDrawer(open) {
   drawer.classList.toggle('open', open);
   overlay.classList.toggle('show', open);
@@ -3602,30 +3581,37 @@ function toggleDrawer(open) {
 toggle.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
 overlay.addEventListener('click', () => toggleDrawer(false));
 
-// Ferme le drawer au clic sur un lien
 drawer.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => toggleDrawer(false));
 });
 
-// Scroll vers l'ancre avec décalage pour la nav fixe
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (e) => {
     const target = document.querySelector(link.getAttribute('href'));
     if (!target) return;
     e.preventDefault();
-    // Active immédiatement le lien cliqué
-    document.querySelectorAll('.nav-menu a[href^="#"]').forEach(l => l.classList.remove('active'));
-    const navLink = document.querySelector(`.nav-menu a[href="${link.getAttribute('href')}"]`);
-    if (navLink) navLink.classList.add('active');
     const offsetTop = target.offsetTop - (nav ? nav.offsetHeight : 72);
     window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-    scrollLocked = true;
-    setTimeout(() => { scrollLocked = false; }, 1000);
   });
 });
-let scrollLocked = false;
-window.addEventListener('scroll', () => { if (!scrollLocked) onScroll(); }, { passive: true });
-onScroll(); // état initial
+
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+const navSections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      navLinks.forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+      });
+    }
+  });
+}, { threshold: 0.3, rootMargin: '-72px 0px 0px 0px' });
+
+navSections.forEach((section) => navObserver.observe(section));
 
 /* ============================================================
    SCROLL REVEAL — IntersectionObserver
