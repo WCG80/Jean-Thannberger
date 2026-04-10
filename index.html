@@ -3602,11 +3602,15 @@ onScroll();
 
 const navSections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+const drawerLinks = document.querySelectorAll('.nav-drawer a[href^="#"]');
 
 const navObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       navLinks.forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+      });
+      drawerLinks.forEach((link) => {
         link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
       });
     }
