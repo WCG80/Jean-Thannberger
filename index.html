@@ -3620,7 +3620,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     const offsetTop = target.offsetTop - (nav ? nav.offsetHeight : 72);
     window.scrollTo({ top: offsetTop, behavior: 'smooth' });
     scrollLocked = true;
-    setTimeout(() => { scrollLocked = false; }, 1000);
+    setTimeout(() => { scrollLocked = false; }, 500);
   });
 });
 let scrollLocked = false;
